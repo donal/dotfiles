@@ -34,7 +34,6 @@ setopt CORRECT
 setopt RMSTARSILENT
 
 ## Don't require 'cd'
-## Commented out cos Jaf doesn't appreciate it!
 setopt AUTOCD
 
 ## Automatically pushd - then I can go to an old dir with cd - <tab> (pick no.)
@@ -143,40 +142,12 @@ alias lg='ls -l | grep -i'
 alias cd..='cd ..';
 alias ..='cd ..'
 alias df='df -h'
-alias psme='ps -u michael'
 alias cdw='cd ~/Documents/writing'
 alias cdr='cd ~/dev/rails'
-alias cdo='cd ~/work/oars'
-alias cdl='cd ~/work/lithium'
-alias cddr='cd ~/Documents/writing/diary'
-alias cdm='cd ~/work/mypisa-meta'
 alias cdd='cd ~/dev'
-alias cdpy='cd ~/dev/python'
-alias cdpyl='cd ~/dev/pylons'
-alias cddd='cd ~/dev/django'
-alias cds='cd ~/dev/rails/sdk-api'
-alias cdh='cd ~/dev/habari'
-alias cdp='cd ~/dev/perx'
-alias cdz='cd ~/dev/php/zend'
-alias cdpp='cd ~/dev/php/projects'
-alias cdn='cd ~/dev/php/newamie'
-# alias cdr='cd ~/dev/rails'
-alias cdk='cd ~/dev/rails/kriskringle'
-alias cdrr='cd ~/dev/rails/rails23'
-alias cdtt='cd ~/dev/rails/timetracker'
-alias cda='cd ~/dev/rails/amie'
-alias cdru='cd ~/dev/ruby'
-alias cdgem='cd /usr/local/lib/ruby/gems/1.8/gems'
-alias reb='cd ~/dev/ruby/reb'
-alias 8start='sudo /usr/local/apache2/bin/apachectl start'
-alias 8stop='sudo /usr/local/apache2/bin/apachectl stop'
-alias 52start='sudo /usr/local/apache2-php5.2/bin/apachectl start'
-alias 52stop='sudo /usr/local/apache2-php5.2/bin/apachectl stop'
-alias 52graceful='sudo /usr/local/apache2-php5.2/bin/apachectl graceful'
+alias cdg='cd ~/github'
 alias mystart='sudo /usr/local/mysql/bin/mysqld_safe &'
 alias mystop='sudo /usr/local/mysql/bin/mysqladmin -u root -p shutdown'
-alias mgstart='mongrel_rails start -d -e development -p 3000'
-alias mgstop='mongrel_rails stop'
 alias vm='ssh root@192.168.97.128'
 # alias vm='ssh root@192.168.97.129'
 alias vmu='ssh root@192.168.97.130'
@@ -186,8 +157,6 @@ alias jive='ssh ubuntu@web1.jiveitup.com'
 alias dev='ssh ubuntu@dev.getperx.com'
 alias tdb='ssh ubuntu@ec2-54-251-10-56.ap-southeast-1.compute.amazonaws.com'
 alias pca='ssh ubuntu@54.255.176.66'
-
-alias li3='/work/lithium/lithium/libraries/lithium/console/li3'
 
 alias my='/usr/local/mysql/bin/mysql -u root -p'
 
@@ -201,36 +170,13 @@ alias igrep='grep -i'
 alias rgrep='grep -R'
 alias rigrep='grep -iR'
 
-alias phplog='tail -f /private/etc/httpd/phplog.txt'
 alias proxy='export http_proxy=http://192.168.1.102:3128;export HTTP_PROXY=$http_proxy;export FTP_PROXY=$http_proxy;export https_proxy=$http_proxy;export ftp_proxy=$http_proxy;'
 alias noproxy="export http_proxy='';export HTTP_PROXY=$http_proxy;export FTP_PROXY=$http_proxy;export https_proxy=$http_proxy;export ftp_proxy=$http_proxy;"
 alias updatedb='sudo /usr/libexec/locate.updatedb'
 alias hosts='vim /etc/hosts'
-#alias ars='sudo apachectl graceful'
-alias graceful='sudo apachectl graceful'
 alias flushdns='lookupd -flushcache'
 alias bc='bc -l'
 alias o.='open .'
-# alias smb='smbclient //acerwww/PisaWeb ITdev2004 -U cvs'
-alias smb='smbclient //acerwww.acer.edu.au/PisaWeb ITdev2004 -U cvs'
-alias acerwww='smbclient //acerwww.acer.edu.au/PisaWeb ITdev2004 -U cvs'
-alias dmzdoc='smbclient //203.2.133.200/Documents ITdev2004 -U cvs'
-
-# show only cvs not "Up-to-date"
-alias cvsnud='cvs status 2>/dev/null | grep Status: | grep -v "to-date"'
-
-alias phpext='export PATH=/Users/donal/local/php5/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/php5.2.3/bin'
-alias diet='vim ~/Documents/important/diet'
-
-alias pu='vim ~/Documents/personal/diaries/eating'
-
-## ensure X11 is running when I gvim, xterm etc
-#alias xterm='open -a X11 && /usr/X11R6/bin/xterm  -sb -sl 5000 -rightbar -fg white -bg black -geometry 100x50+40+20'
-#alias gvim='open -a X11 && vim -g'
-## on the other hand, don't try and connect to X when I am not gvimming
-#alias vim='vim -X' #what is the -X for??
-#alias x='open -a X11'
-
 
 ## shortcuts to other machines
 alias tgo='ssh e46762@goanna.cs.rmit.edu.au'
@@ -253,17 +199,11 @@ alias cdb='cd /opt/boxen'
 # alias zf='/Users/donal/dev/zf/bin/zf.sh'
 alias zf='/work/zf/current/bin/zf.sh'
 
-alias ta='/work/PEAR/phpunit.php AllTests.php'
-alias ut='/work/PEAR/phpunit.php'
-
 alias rds='mysql -u perx -p -h production.ccfyzqu52kfe.ap-southeast-1.rds.amazonaws.com'
 
 alias stageold='ssh ubuntu@175.41.146.69'
 alias stage='ssh ubuntu@54.255.129.55'
 alias beta='ssh ubuntu@54.179.130.211'
-
-# some fink shit
-#source /sw/bin/init.sh
 
 # if [ `ifconfig | grep 10.10.0.22 | wc -l` = 1 ]; then
 #     proxy
