@@ -1,0 +1,18 @@
+[user]
+  name = donal
+  email = donal@github.com
+[color]
+  branch = auto
+  diff = auto
+  interactive = auto
+  status = auto
+
+[credential]
+  helper = /opt/boxen/bin/boxen-git-credential
+
+[core]
+  excludesfile = /opt/boxen/config/git/gitignore
+[github]
+  user = donal
+[ghi "highlight"]
+  style = colorful

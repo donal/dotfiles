@@ -1,0 +1,4 @@
+bind -v
+bind ^L ed-clear-screen
+bind \\t rl_complete
+
