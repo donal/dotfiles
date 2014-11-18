@@ -1,0 +1,13 @@
+# At .ssh/config
+
+Host github.com
+  HostName github.com
+  User git
+  IdentityFile /Users/donal/.ssh/github_donal_rsa
+  IdentitiesOnly yes
+
+Host github-onald.com
+  HostName github.com
+  User git
+  IdentityFile /Users/donal/.ssh/github_onald_rsa
+  IdentitiesOnly yes
