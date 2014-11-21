@@ -4,6 +4,9 @@
 # functions, options, key bindings, etc.
 #
 
+# need to load this first because hub is an alias to git
+fpath=(~/.zsh $fpath)
+
 ##################
 # LOAD FUNCTIONS #
 ##################
@@ -144,6 +147,7 @@ alias ..='cd ..'
 alias df='df -h'
 alias cdw='cd ~/Documents/writing'
 alias cdr='cd ~/dev/rails'
+alias cds='cd ~/src'
 alias cdd='cd ~/dev'
 alias cdg='cd ~/github'
 alias cddg='cd ~/dev/github'
@@ -211,3 +215,15 @@ alias beta='ssh ubuntu@54.179.130.211'
 # fi
 #
 [ -f /opt/boxen/env.sh ] && source /opt/boxen/env.sh
+
+# TODO
+# zstyle ':completion:::git:*' script /opt/boxen/homebrew/Cellar/git/2.1.3/etc/bash_completion.d/git-completion.bash
+# fpath=(/opt/boxen/homebrew/share/zsh-completions $fpath)
+
+# TODO
+# zstyle ':completion:*:*:git:*' script ~/.zsh/git-completion.zsh
+# source ~/.git-completion.sh
+
+# zstyle ':completion:*:*:git:*' script ~/.git-completion.zsh
+# fpath=(~/.zsh $fpath)
+
