@@ -217,13 +217,16 @@ alias beta='ssh ubuntu@54.179.130.211'
 [ -f /opt/boxen/env.sh ] && source /opt/boxen/env.sh
 
 # TODO
-# zstyle ':completion:::git:*' script /opt/boxen/homebrew/Cellar/git/2.1.3/etc/bash_completion.d/git-completion.bash
-# fpath=(/opt/boxen/homebrew/share/zsh-completions $fpath)
+# source ~/.bin/tmuxinator.zsh
 
 # TODO
-# zstyle ':completion:*:*:git:*' script ~/.zsh/git-completion.zsh
-# source ~/.git-completion.sh
+# source /usr/local/bin/aws_zsh_completer.sh
 
-# zstyle ':completion:*:*:git:*' script ~/.git-completion.zsh
-# fpath=(~/.zsh $fpath)
+source $HOME/src/zsh-git-prompt/zshrc.sh
+
+PROMPT='%{${fg[yellow]}%}[%n@%m] %{${fg[green]}%}%4~%{${fg[default]}%}$(git_super_status) %# '
+
+# TODO
+# powerline-daemon -q
+# source /Users/donal/dev/src/powerline/powerline/bindings/zsh/powerline.zsh
 
