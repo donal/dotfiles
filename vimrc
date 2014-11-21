@@ -44,6 +44,7 @@ set showmode
 set showmatch
 "**unset
 set textwidth=79
+set number
 "set notextauto
 "set notextmode
 "set t_Co=8
@@ -128,9 +129,20 @@ function ToggleTrail()
   endif
 endfunction
 
+function ToggleTextWidth()
+  if &l:textwidth > 0
+    set textwidth=0
+    echo "textwidth is disabled"
+  else
+    set textwidth=79
+    echo "textwidth is 79"
+  endif
+endfunction
+
 map ,b :let &background = ( &background == "dark"? "light" : "dark" )<CR>
 map <silent> ,n :call ToggleLineNumbering()<CR>
 map <silent> ,l :call ToggleTrail()<CR>
+map <silent> ,w :call ToggleTextWidth()<CR>
 vnoremap <Leader>c :s!^!// !<cr>gv:s!^// // !!<cr>
 
 "function OpenPHPManual(keyword)
