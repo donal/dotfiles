@@ -67,6 +67,9 @@ export RPS1="%{${fg[yellow]}%}%T%{${fg[default]}%}"
 export EDITOR=vim
 bindkey -v
 
+export LC_ALL=en_GB.UTF-8
+export LANG=en_GB.UTF-8
+
 # export PATH=/usr/local/bin:$PATH:/usr/local/php5.2.3/bin
 # export PATH=$HOME/bin:/usr/local/bin:/Developer/usr/bin:/usr/local/mysql/bin:/usr/local/apache2/bin:$PATH:$HOME/flex3sdk/bin:/usr/games
 # export PATH=$HOME/bin:/usr/local/python/frameworks/Python.framework/Versions/2.6/bin:/usr/local/bin:/usr/local/mysql/bin:/usr/local/pgsql/bin:/usr/local/apache2/bin:/usr/local/php5/bin:/usr/local/macports/bin:/usr/local/freetds/bin:$PATH
@@ -89,20 +92,22 @@ export SDK_API_APP_PATH=/Users/donal/dev/rails/sdk-api
 
 export GUARD_IP_ADDRESS="10.0.1.4"
 
-export PCA_MYSQL_SOCKET_PATH=/tmp/mysql.sock
+export PCA_MYSQL_SOCKET_PATH=/opt/boxen/data/mysql/socket
 export PCA_APP_PATH=/Users/donal/dev/rails/pca_rails
+
+export CANTOFLASH_MYSQL_SOCKET_PATH=/opt/boxen/data/mysql/socket
+export CANTOFLASH_MYSQL_PASSWORD=cantoflash
+export CANTOFLASH_APP_PATH=/Users/donal/dev/rails/cantoflash
 
 export PERX_MYSQL_PASSWORD=perx
 export PERX_MYSQL_SOCKET_PATH=/private/tmp/mysql.sock
 
-export RAILS_SECRET_KEY_BASE="995c65d2f8ff6d4e36f920de622bd15f1aa9100ef03d3f0b93cc021504d63390499504c299192efebaea1b63bd8b305db48f65ba061a656cf8ea06f0f3fc8bb2"
+# export PRIVATE_GEM_SERVER="http://gems:blu3dAwn@gems.getperx.com:8187"
 
-export PRIVATE_GEM_SERVER="http://gems:blu3dAwn@gems.getperx.com:8187"
+export AWS_CONFIG_FILE=/Users/donal/.aws/config
 
-export ROLLBAR_ACCESS_TOKEN='75951fe15888442f9c7d5ed199a5c0e9'
-
-# export AWS_ACCESS_KEY_ID="AKIAIM4YCIWGRUDIOGYQ"
-# export AWS_SECRET_ACCESS_KEY="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"
+# private vars
+source /Users/donal/.private_vars
 
 ## color STDERR red
 #exec 2>>(while read line; do
