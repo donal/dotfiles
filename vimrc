@@ -139,10 +139,22 @@ function ToggleTextWidth()
   endif
 endfunction
 
+let b:spelling_lang = "en_gb"
+function ToggleSpellChecking()
+  if &spell
+    setlocal nospell
+    echo "spell check turned off"
+  else
+    setlocal spell! spelllang=en_gb
+    echo "spell check for " . b:spelling_lang . " on"
+  endif
+endfunction
+
 map ,b :let &background = ( &background == "dark"? "light" : "dark" )<CR>
 map <silent> ,n :call ToggleLineNumbering()<CR>
 map <silent> ,l :call ToggleTrail()<CR>
 map <silent> ,w :call ToggleTextWidth()<CR>
+map <silent> ,s :call ToggleSpellChecking()<CR>
 vnoremap <Leader>c :s!^!// !<cr>gv:s!^// // !!<cr>
 
 "function OpenPHPManual(keyword)
