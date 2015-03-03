@@ -162,11 +162,12 @@ alias vm='ssh root@192.168.97.128'
 # alias vm='ssh root@192.168.97.129'
 alias vmu='ssh root@192.168.97.130'
 # alias cent='ssh root@10.0.1.23'
+alias syd='ssh ubuntu@babywhitelist.com'
 alias perx='ssh ubuntu@web1.getperx.com'
 alias jive='ssh ubuntu@web1.jiveitup.com'
 alias dev='ssh ubuntu@dev.getperx.com'
 alias tdb='ssh ubuntu@ec2-54-251-10-56.ap-southeast-1.compute.amazonaws.com'
-alias pca='ssh ubuntu@54.255.176.66'
+alias pca='ssh ubuntu@54.255.176.66 -i ~/.ssh/nippur/id_rsa'
 
 alias my='/usr/local/mysql/bin/mysql -u root -p'
 
@@ -193,17 +194,18 @@ alias tgo='ssh e46762@goanna.cs.rmit.edu.au'
 alias ty='ssh e46762@yallara.cs.rmit.edu.au'
 alias tx='ssh -l xnwq -p 2222 xusu.net'
 alias tkca='ssh -l krisnach -p 2222 www.krisnacheungarchitects.com.au'
-alias tsh='ssh -p 10000 donal@67.23.12.30'
+alias tsh='ssh -i ~/.ssh/nippur/id_rsa -p 10000 donal@67.23.12.30'
 alias tifi='ssh -l donal 10.1.1.8'
 alias tif='ssh -l donal 203.206.183.143'
 # alias tnash='ssh -l root 113.20.3.83'
-alias tnash='ssh -p 11000 -l donal nashape.com'
+# alias tnash='ssh -p 11000 -l donal nashape.com'
 #alias fx='sftp -oPort=2864 xnwq@www.xusu.net'
 alias fx='sftp xnwq@www.xusu.net'
 alias fgo='sftp e46762@goanna.cs.rmit.edu.au'
 alias fy='sftp e46762@yallara.cs.rmit.edu.au'
 
-alias cdv='cd /Users/donal/dev/vagrants'
+alias cdv='cd /Users/donal/dev/vms'
+alias cdvv='cd /Users/donal/dev/vms/vagrants'
 alias cdb='cd /opt/boxen'
 
 # alias zf='/Users/donal/dev/zf/bin/zf.sh'
@@ -214,6 +216,9 @@ alias rds='mysql -u perx -p -h production.ccfyzqu52kfe.ap-southeast-1.rds.amazon
 alias stageold='ssh ubuntu@175.41.146.69'
 alias stage='ssh ubuntu@54.255.129.55'
 alias beta='ssh ubuntu@54.179.130.211'
+
+# IP address for RMIT's goanna server
+alias goanna='131.170.24.40'
 
 # if [ `ifconfig | grep 10.10.0.22 | wc -l` = 1 ]; then
 #     proxy
