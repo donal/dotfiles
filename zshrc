@@ -152,12 +152,14 @@ alias ..='cd ..'
 alias df='df -h'
 alias cdw='cd ~/Documents/writing'
 alias cdr='cd ~/dev/rails'
+alias cdc='cd ~/dev/rails/cantoflash'
 alias cds='cd ~/src'
 alias cdd='cd ~/dev'
 alias cdg='cd ~/github'
 alias cdgg='cd ~/github/github'
 alias cddg='cd ~/dev/github'
-alias cdgw='cd ~/dev/github-work'
+alias cdgw='cd ~/dev/github/github-work'
+alias cdgl='cd ~/dev/github/local'
 alias mystart='sudo /usr/local/mysql/bin/mysqld_safe &'
 alias mystop='sudo /usr/local/mysql/bin/mysqladmin -u root -p shutdown'
 alias vm='ssh root@192.168.97.128'
@@ -213,6 +215,7 @@ alias fy='sftp e46762@yallara.cs.rmit.edu.au'
 alias cdv='cd /Users/donal/dev/vms'
 alias cdvv='cd /Users/donal/dev/vms/vagrants'
 alias cdb='cd /opt/boxen'
+alias cdm='cd /opt/boxen/repo/modules/people/manifests'
 
 # alias zf='/Users/donal/dev/zf/bin/zf.sh'
 alias zf='/work/zf/current/bin/zf.sh'
@@ -225,6 +228,9 @@ alias beta='ssh ubuntu@54.179.130.211'
 
 # IP address for RMIT's goanna server
 alias goanna='131.170.24.40'
+
+# ldap for GH
+alias ldapv='sudo /opt/boxen/homebrew/Cellar/openldap/2.4.39/libexec/slapd -f /opt/boxen/homebrew/etc/openldap/slapd.conf -d 255'
 
 # if [ `ifconfig | grep 10.10.0.22 | wc -l` = 1 ]; then
 #     proxy
