@@ -43,6 +43,9 @@ setopt AUTOCD
 setopt AUTOPUSHD
 export DIRSTACKSIZE=11 # stack size of eleven gives me a list with ten entries
 
+# display non-zero exit codes from CLI processes
+# setopt printexitvalue
+
 ## Autocomplete hosts from .ssh/known_hosts
 #local _myhosts
 #_myhosts=( ${${${${(f)"$(<$HOME/.ssh/known_hosts)"}:#[0-9]*}%%\ *}%%,*} )
@@ -99,6 +102,10 @@ export CANTOFLASH_MYSQL_SOCKET_PATH=/opt/boxen/data/mysql/socket
 export CANTOFLASH_MYSQL_PASSWORD=cantoflash
 export CANTOFLASH_APP_PATH=/Users/donal/dev/rails/cantoflash
 
+export ISE_MYSQL_SOCKET_PATH=/opt/boxen/data/mysql/socket
+export ISE_MYSQL_PASSWORD=ise
+export ISE_APP_PATH=/Users/donal/dev/rails/ise
+
 export PERX_MYSQL_PASSWORD=perx
 export PERX_MYSQL_SOCKET_PATH=/private/tmp/mysql.sock
 
@@ -150,8 +157,10 @@ alias lg='ls -l | grep -i'
 alias cd..='cd ..';
 alias ..='cd ..'
 alias df='df -h'
-alias cdw='cd ~/Documents/writing'
+alias cdw='cd ~/dev/writing'
+alias cdo='cd ~/dev/odnd'
 alias cdr='cd ~/dev/rails'
+alias cdru='cd ~/dev/ruby'
 alias cdc='cd ~/dev/rails/cantoflash'
 alias cds='cd ~/src'
 alias cdd='cd ~/dev'
@@ -211,6 +220,9 @@ alias tif='ssh -l donal 203.206.183.143'
 alias fx='ftp xnwq@xusu.net'
 alias fgo='sftp e46762@goanna.cs.rmit.edu.au'
 alias fy='sftp e46762@yallara.cs.rmit.edu.au'
+
+alias tdo='ssh -i ~/.digitalocean/do_rsa ubuntu@198.199.101.114' # deepone on digitalocean
+alias tdo1='ssh -p 10001 -i ~/.digitalocean/do_rsa ubuntu@198.199.101.114' # deepone on digitalocean
 
 alias cdv='cd /Users/donal/dev/vms'
 alias cdvv='cd /Users/donal/dev/vms/vagrants'
