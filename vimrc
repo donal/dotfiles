@@ -29,8 +29,7 @@ set list listchars=trail:_,tab:>.
 "set nolist
 
 " this is for spelling:
-" autocmd BufNewFile,BufRead *.txt,*.html,README set spell spelllang=en_gb
-autocmd BufNewFile,BufRead *.txt,README set spell spelllang=en_gb
+autocmd BufNewFile,BufRead *.txt,*.md,README set spell spelllang=en_gb
 
 "set spell spelllang=en_gb
 "autocmd BufNewFile,BufRead *.txt,README set spell spelllang=en_gb

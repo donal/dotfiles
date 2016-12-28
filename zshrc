@@ -65,7 +65,7 @@ WORDCHARS='*?_-.[]~\!#$%^(){}<>|`@#$%^*()+:?'
 
 ## set up my prompt
 export PS1="%{${fg[yellow]}%}[%n@%m] %{${fg[green]}%}%3~ %# %{${fg[default]}%}"
-export RPS1="%{${fg[yellow]}%}%T%{${fg[default]}%}"
+# export RPS1="%{${fg[yellow]}%}%T%{${fg[default]}%}"
 
 export EDITOR=vim
 bindkey -v
@@ -89,6 +89,8 @@ export DISPLAY=:0.0
 
 export PERKS_MYSQL_SOCKET_PATH=/tmp/mysql.sock
 
+export WEBHOOKS_MYSQL_SOCKET_PATH=/tmp/mysql.sock
+
 export SDK_API_MYSQL_PASSWORD=perx
 export SDK_API_MYSQL_SOCKET_PATH=/tmp/mysql.sock
 export SDK_API_APP_PATH=/Users/donal/dev/rails/sdk-api
@@ -102,6 +104,10 @@ export CANTOFLASH_MYSQL_SOCKET_PATH=/opt/boxen/data/mysql/socket
 export CANTOFLASH_MYSQL_PASSWORD=cantoflash
 export CANTOFLASH_APP_PATH=/Users/donal/dev/rails/cantoflash
 
+export FMYF_MYSQL_SOCKET_PATH=/opt/boxen/data/mysql/socket
+export FMYF_MYSQL_PASSWORD=fmyf
+export FMYF_APP_PATH=/Users/donal/dev/rails/fmyf
+
 export ISE_MYSQL_SOCKET_PATH=/opt/boxen/data/mysql/socket
 export ISE_MYSQL_PASSWORD=ise
 export ISE_APP_PATH=/Users/donal/dev/rails/ise
@@ -112,6 +118,8 @@ export PERX_MYSQL_SOCKET_PATH=/private/tmp/mysql.sock
 # export PRIVATE_GEM_SERVER="http://gems:blu3dAwn@gems.getperx.com:8187"
 
 export AWS_CONFIG_FILE=/Users/donal/.aws/config
+
+export VAGRANT_DEFAULT_PROVIDER=virtualbox
 
 # private vars
 source /Users/donal/.private_vars
@@ -158,6 +166,8 @@ alias cd..='cd ..';
 alias ..='cd ..'
 alias df='df -h'
 alias cdw='cd ~/dev/writing'
+alias cdwr='cd ~/dev/writing/rpg'
+alias cddr='cd ~/dev/rpg'
 alias cdo='cd ~/dev/odnd'
 alias cdr='cd ~/dev/rails'
 alias cdru='cd ~/dev/ruby'
@@ -165,26 +175,35 @@ alias cdc='cd ~/dev/rails/cantoflash'
 alias cds='cd ~/src'
 alias cdd='cd ~/dev'
 alias cdg='cd ~/github'
+alias cdge='cd ~/github/enterprise2'
 alias cdgg='cd ~/github/github'
 alias cddg='cd ~/dev/github'
 alias cdgw='cd ~/dev/github/github-work'
 alias cdgl='cd ~/dev/github/local'
+alias cdes='cd ~/Downloads/github'
 alias mystart='sudo /usr/local/mysql/bin/mysqld_safe &'
 alias mystop='sudo /usr/local/mysql/bin/mysqladmin -u root -p shutdown'
 alias vm='ssh root@192.168.97.128'
 # alias vm='ssh root@192.168.97.129'
 alias vmu='ssh root@192.168.97.130'
 # alias cent='ssh root@10.0.1.23'
-alias syd='ssh ubuntu@babywhitelist.com'
+alias syd='ssh ubuntu@54.66.224.218'
 alias perx='ssh ubuntu@web1.getperx.com'
 alias jive='ssh ubuntu@web1.jiveitup.com'
 alias dev='ssh ubuntu@dev.getperx.com'
 alias tdb='ssh ubuntu@ec2-54-251-10-56.ap-southeast-1.compute.amazonaws.com'
 alias pca='ssh ubuntu@54.255.176.66 -i ~/.ssh/nippur/id_rsa'
-alias awsghe='ssh -p 122 admin@ghe.bymick.com -i ~/.aws/DonalKeyPair.pem'
-alias awsghe2='ssh -p 122 admin@ghe2.bymick.com -i ~/.aws/DonalKeyPair.pem'
-alias awsghe214ha='ssh -p 122 admin@214ha.bymick.com -i ~/.aws/DonalKeyPair.pem'
-alias awsghe214='ssh -p 122 admin@214.bymick.com -i ~/.aws/DonalKeyPair.pem'
+alias bymick='ssh -p 122 admin@ghe.bymick.com -i ~/.aws/DonalKeyPair.pem'
+alias awsghe='ssh -p 122 admin@54.169.58.182 -i ~/.aws/DonalKeyPair.pem'
+alias awsghe2='ssh -p 122 admin@54.169.221.189 -i ~/.aws/DonalKeyPair.pem'
+alias awsghe27='ssh -p 122 admin@54.169.39.85 -i ~/.aws/DonalKeyPair.pem'
+alias awsghe28='ssh -p 122 admin@54.169.215.255 -i ~/.aws/DonalKeyPair.pem'
+alias bymick2='ssh -p 122 admin@ghe2.bymick.com -i ~/.aws/DonalKeyPair.pem'
+alias pairing='ssh -p 122 -i ~/.ssh/github-enterprise-support/ent-sup-pairing-aws_rsa admin@52.3.2.216'
+alias pairing2='ssh -p 122 -i ~/.aws/DonalKeyPair.pem admin@54.179.136.193'
+# primary 54.169.58.182
+# replica 54.169.221.189
+alias gheio='ssh -p122 -A -i ~/.ssh/id_rsa admin@ghe.io'
 
 alias my='/usr/local/mysql/bin/mysql -u root -p'
 
@@ -221,13 +240,13 @@ alias fx='ftp xnwq@xusu.net'
 alias fgo='sftp e46762@goanna.cs.rmit.edu.au'
 alias fy='sftp e46762@yallara.cs.rmit.edu.au'
 
-alias tdo='ssh -i ~/.digitalocean/do_rsa ubuntu@198.199.101.114' # deepone on digitalocean
-alias tdo1='ssh -p 10001 -i ~/.digitalocean/do_rsa ubuntu@198.199.101.114' # deepone on digitalocean
+alias tdo='ssh -i ~/.digitalocean/do_rsa freebsd@192.241.239.133' # deepone on digitalocean
+alias tdo1='ssh -p 10001 -i ~/.digitalocean/do_rsa freebsd@192.241.239.133' # deepone on digitalocean
 
 alias cdv='cd /Users/donal/dev/vms'
 alias cdvv='cd /Users/donal/dev/vms/vagrants'
-alias cdb='cd /opt/boxen'
-alias cdm='cd /opt/boxen/repo/modules/people/manifests'
+# alias cdb='cd /opt/boxen'
+# alias cdm='cd /opt/boxen/repo/modules/people/manifests'
 
 # alias zf='/Users/donal/dev/zf/bin/zf.sh'
 alias zf='/work/zf/current/bin/zf.sh'
@@ -242,13 +261,14 @@ alias beta='ssh ubuntu@54.179.130.211'
 alias goanna='131.170.24.40'
 
 # ldap for GH
-alias ldapv='sudo /opt/boxen/homebrew/Cellar/openldap/2.4.39/libexec/slapd -f /opt/boxen/homebrew/etc/openldap/slapd.conf -d 255'
+# alias ldapv='sudo /opt/boxen/homebrew/Cellar/openldap/2.4.39/libexec/slapd -f /opt/boxen/homebrew/etc/openldap/slapd.conf -d 255'
+alias ldapv='sudo /usr/libexec/slapd -f /Users/donal/dev/github/openldap/slapd.conf -d 255'
 
 # if [ `ifconfig | grep 10.10.0.22 | wc -l` = 1 ]; then
 #     proxy
 # fi
 #
-[ -f /opt/boxen/env.sh ] && source /opt/boxen/env.sh
+# [ -f /opt/boxen/env.sh ] && source /opt/boxen/env.sh
 
 # TODO
 # source ~/.bin/tmuxinator.zsh
@@ -264,3 +284,5 @@ PROMPT='%{${fg[yellow]}%}[%n@%m] %{${fg[green]}%}%4~%{${fg[default]}%}$(git_supe
 # powerline-daemon -q
 # source /Users/donal/dev/src/powerline/powerline/bindings/zsh/powerline.zsh
 
+eval "$(rbenv init -)"
+eval "$(nodenv init -)"
