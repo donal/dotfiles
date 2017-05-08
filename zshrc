@@ -179,6 +179,7 @@ alias cdge='cd ~/github/enterprise2'
 alias cdgg='cd ~/github/github'
 alias cddg='cd ~/dev/github'
 alias cdgw='cd ~/dev/github/github-work'
+alias cddc='cd ~/dev/github/github-dotcom-work'
 alias cdgl='cd ~/dev/github/local'
 alias cdes='cd ~/Downloads/github'
 alias mystart='sudo /usr/local/mysql/bin/mysqld_safe &'
@@ -196,8 +197,13 @@ alias pca='ssh ubuntu@54.255.176.66 -i ~/.ssh/nippur/id_rsa'
 alias bymick='ssh -p 122 admin@ghe.bymick.com -i ~/.aws/DonalKeyPair.pem'
 alias awsghe='ssh -p 122 admin@54.169.58.182 -i ~/.aws/DonalKeyPair.pem'
 alias awsghe2='ssh -p 122 admin@54.169.221.189 -i ~/.aws/DonalKeyPair.pem'
-alias awsghe27='ssh -p 122 admin@54.169.39.85 -i ~/.aws/DonalKeyPair.pem'
-alias awsghe28='ssh -p 122 admin@54.169.215.255 -i ~/.aws/DonalKeyPair.pem'
+alias awsghe27='ssh -p 122 admin@54.255.241.56 -i ~/.aws/DonalKeyPair.pem'
+alias awsghe28='ssh -p 122 admin@13.228.11.16 -i ~/.aws/DonalKeyPair.pem'
+alias awsghe28p='ssh -p 122 admin@54.169.215.255 -i ~/.aws/DonalKeyPair.pem'
+alias awsghe28r='ssh -p 122 admin@54.255.230.147 -i ~/.aws/DonalKeyPair.pem'
+alias awsghe29='ssh -p 122 admin@52.77.244.149 -i ~/.aws/DonalKeyPair.pem'
+alias awsghe29p='ssh -p 122 admin@52.77.244.149 -i ~/.aws/DonalKeyPair.pem'
+alias awsghe29r='ssh -p 122 admin@54.255.240.100 -i ~/.aws/DonalKeyPair.pem'
 alias bymick2='ssh -p 122 admin@ghe2.bymick.com -i ~/.aws/DonalKeyPair.pem'
 alias pairing='ssh -p 122 -i ~/.ssh/github-enterprise-support/ent-sup-pairing-aws_rsa admin@52.3.2.216'
 alias pairing2='ssh -p 122 -i ~/.aws/DonalKeyPair.pem admin@54.179.136.193'
@@ -243,8 +249,8 @@ alias fy='sftp e46762@yallara.cs.rmit.edu.au'
 alias tdo='ssh -i ~/.digitalocean/do_rsa freebsd@192.241.239.133' # deepone on digitalocean
 alias tdo1='ssh -p 10001 -i ~/.digitalocean/do_rsa freebsd@192.241.239.133' # deepone on digitalocean
 
-alias cdv='cd /Users/donal/dev/vms'
-alias cdvv='cd /Users/donal/dev/vms/vagrants'
+alias cdv='cd /Users/donal/dev/vagrants'
+# alias cdvv='cd /Users/donal/dev/vms/vagrants'
 # alias cdb='cd /opt/boxen'
 # alias cdm='cd /opt/boxen/repo/modules/people/manifests'
 
@@ -263,6 +269,8 @@ alias goanna='131.170.24.40'
 # ldap for GH
 # alias ldapv='sudo /opt/boxen/homebrew/Cellar/openldap/2.4.39/libexec/slapd -f /opt/boxen/homebrew/etc/openldap/slapd.conf -d 255'
 alias ldapv='sudo /usr/libexec/slapd -f /Users/donal/dev/github/openldap/slapd.conf -d 255'
+
+alias mves='bash /Users/donal/bin/mves.sh'
 
 # if [ `ifconfig | grep 10.10.0.22 | wc -l` = 1 ]; then
 #     proxy
