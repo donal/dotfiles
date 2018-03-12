@@ -104,9 +104,9 @@ export CANTOFLASH_MYSQL_SOCKET_PATH=/opt/boxen/data/mysql/socket
 export CANTOFLASH_MYSQL_PASSWORD=cantoflash
 export CANTOFLASH_APP_PATH=/Users/donal/dev/rails/cantoflash
 
-export FMYF_MYSQL_SOCKET_PATH=/opt/boxen/data/mysql/socket
-export FMYF_MYSQL_PASSWORD=fmyf
-export FMYF_APP_PATH=/Users/donal/dev/rails/fmyf
+# export FMYF_MYSQL_SOCKET_PATH=/opt/boxen/data/mysql/socket
+# export FMYF_MYSQL_PASSWORD=fmyf
+export FMYF_APP_PATH=/Users/donal/dev/rails/foodmakesyoufat
 
 export ISE_MYSQL_SOCKET_PATH=/opt/boxen/data/mysql/socket
 export ISE_MYSQL_PASSWORD=ise
@@ -120,6 +120,8 @@ export PERX_MYSQL_SOCKET_PATH=/private/tmp/mysql.sock
 export AWS_CONFIG_FILE=/Users/donal/.aws/config
 
 export VAGRANT_DEFAULT_PROVIDER=virtualbox
+
+export GOPATH=$HOME/dev/go
 
 # private vars
 source /Users/donal/.private_vars
@@ -170,14 +172,19 @@ alias cdwr='cd ~/dev/writing/rpg'
 alias cddr='cd ~/dev/rpg'
 alias cdo='cd ~/dev/odnd'
 alias cdr='cd ~/dev/rails'
+alias cdpy='cd ~/dev/python'
+alias cdp='cd ~/dev/perl'
 alias cdru='cd ~/dev/ruby'
 alias cdc='cd ~/dev/rails/cantoflash'
 alias cds='cd ~/src'
 alias cdd='cd ~/dev'
+alias cdgr='cd ~/dev/graphics'
 alias cdg='cd ~/github'
+alias cdgo='cd ~/dev/go'
 alias cdge='cd ~/github/enterprise2'
 alias cdgg='cd ~/github/github'
 alias cddg='cd ~/dev/github'
+alias cdgk='cd ~/github/knowledge-base'
 alias cdgw='cd ~/dev/github/github-work'
 alias cddc='cd ~/dev/github/github-dotcom-work'
 alias cdgl='cd ~/dev/github/local'
@@ -195,15 +202,22 @@ alias dev='ssh ubuntu@dev.getperx.com'
 alias tdb='ssh ubuntu@ec2-54-251-10-56.ap-southeast-1.compute.amazonaws.com'
 alias pca='ssh ubuntu@54.255.176.66 -i ~/.ssh/nippur/id_rsa'
 alias bymick='ssh -p 122 admin@ghe.bymick.com -i ~/.aws/DonalKeyPair.pem'
-alias awsghe='ssh -p 122 admin@54.169.58.182 -i ~/.aws/DonalKeyPair.pem'
-alias awsghe2='ssh -p 122 admin@54.169.221.189 -i ~/.aws/DonalKeyPair.pem'
-alias awsghe27='ssh -p 122 admin@54.255.241.56 -i ~/.aws/DonalKeyPair.pem'
-alias awsghe28='ssh -p 122 admin@13.228.11.16 -i ~/.aws/DonalKeyPair.pem'
-alias awsghe28p='ssh -p 122 admin@54.169.215.255 -i ~/.aws/DonalKeyPair.pem'
-alias awsghe28r='ssh -p 122 admin@54.255.230.147 -i ~/.aws/DonalKeyPair.pem'
-alias awsghe29='ssh -p 122 admin@52.77.244.149 -i ~/.aws/DonalKeyPair.pem'
-alias awsghe29p='ssh -p 122 admin@52.77.244.149 -i ~/.aws/DonalKeyPair.pem'
-alias awsghe29r='ssh -p 122 admin@54.255.240.100 -i ~/.aws/DonalKeyPair.pem'
+# alias awsghe='ssh -p 122 admin@54.169.58.182 -i ~/.aws/DonalKeyPair.pem'
+# alias awsghe2='ssh -p 122 admin@54.169.221.189 -i ~/.aws/DonalKeyPair.pem'
+# alias awsghe27='ssh -p 122 admin@54.255.241.56 -i ~/.aws/DonalKeyPair.pem'
+# alias awsghe28='ssh -p 122 admin@13.228.168.235 -i ~/.aws/DonalKeyPair.pem'
+# alias awsghe29='ssh -p 122 admin@54.254.217.54 -i ~/.aws/DonalKeyPair.pem'
+# alias awsghe29p='ssh -p 122 admin@54.254.217.54 -i ~/.aws/DonalKeyPair.pem'
+# alias awsghe29r='ssh -p 122 admin@54.254.181.197 -i ~/.aws/DonalKeyPair.pem'
+alias awsghe210='ssh -p 122 admin@13.250.19.106 -i ~/.aws/DonalKeyPair.pem'
+alias awsghe210r='ssh -p 122 admin@54.169.87.244 -i ~/.aws/DonalKeyPair.pem'
+alias awsghe212='ssh -p 122 admin@54.169.224.10 -i ~/.aws/DonalKeyPair.pem'
+# this will change (I think):
+alias octo='ssh -p122 -i ~/.aws/DonalKeyPair.pem admin@13.228.204.157'
+alias sg1-aws-ghe='ssh -p 122 admin@52.74.32.208 -i ~/.aws/DonalKeyPair.pem'
+alias sg2-aws-ghe='ssh -p 122 admin@13.229.124.220 -i ~/.aws/DonalKeyPair.pem'
+alias syd1-aws-ghe='ssh -p 122 admin@54.66.165.247 -i ~/.aws/DonalKeyPair.pem'
+alias tokyo-aws-ghe='ssh -p 122 admin@52.69.124.235 -i ~/.aws/DonalKeyPair.pem'
 alias bymick2='ssh -p 122 admin@ghe2.bymick.com -i ~/.aws/DonalKeyPair.pem'
 alias pairing='ssh -p 122 -i ~/.ssh/github-enterprise-support/ent-sup-pairing-aws_rsa admin@52.3.2.216'
 alias pairing2='ssh -p 122 -i ~/.aws/DonalKeyPair.pem admin@54.179.136.193'
@@ -211,7 +225,8 @@ alias pairing2='ssh -p 122 -i ~/.aws/DonalKeyPair.pem admin@54.179.136.193'
 # replica 54.169.221.189
 alias gheio='ssh -p122 -A -i ~/.ssh/id_rsa admin@ghe.io'
 
-alias my='/usr/local/mysql/bin/mysql -u root -p'
+# alias my='/usr/local/mysql/bin/mysql -u root -p'
+alias my='/usr/local/opt/mysql/bin/mysql -u root'
 
 alias mkdir='nocorrect mkdir'
 alias mv='nocorrect mv'
@@ -272,6 +287,10 @@ alias ldapv='sudo /usr/libexec/slapd -f /Users/donal/dev/github/openldap/slapd.c
 
 alias mves='bash /Users/donal/bin/mves.sh'
 
+alias dxc='docker container ls'
+alias dxcla='docker container ls -a'
+alias dxi='docker image ls'
+
 # if [ `ifconfig | grep 10.10.0.22 | wc -l` = 1 ]; then
 #     proxy
 # fi
@@ -294,3 +313,4 @@ PROMPT='%{${fg[yellow]}%}[%n@%m] %{${fg[green]}%}%4~%{${fg[default]}%}$(git_supe
 
 eval "$(rbenv init -)"
 eval "$(nodenv init -)"
+. "/Users/donal/.acme.sh/acme.sh.env"
