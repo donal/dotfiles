@@ -1,7 +1,7 @@
 
 filetype off
 
-set rtp+=~/.vim/bundle/vundle/
+set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#rc()
 
 Bundle 'gmarik/vundle'
@@ -11,8 +11,8 @@ Bundle 'tpope/vim-rails'
 
 
 " these do indenting
-" for habari:
-"set tabstop=2 softtabstop=2 shiftwidth=2 noexpandtab
+" for Go:
+" set tabstop=2 softtabstop=2 shiftwidth=2 noexpandtab
 " for acer:
 " set softtabstop=4 shiftwidth=4 expandtab
 " for me/rails:
@@ -22,11 +22,15 @@ set tabstop=2 softtabstop=2 shiftwidth=2 expandtab
 " for li3:
 "set tabstop=4 shiftwidth=4
 
+autocmd FileType go setlocal tabstop=2 softtabstop=2 shiftwidth=2 noexpandtab
+
 "set autoindent
 "set smartindent
 set list listchars=trail:_,tab:>.
 "set list listchars=trail:_,tab:>-
 "set nolist
+
+autocmd FileType go setlocal nolist
 
 " this is for spelling:
 autocmd BufNewFile,BufRead *.txt,*.md,README set spell spelllang=en_gb
@@ -88,6 +92,9 @@ au FileType php set omnifunc=phpcomplete#CompletePHP
 "colorscheme ir_black
 syntax on
 set background=dark
+let g:solarized_termcolors=256
+set t_Co=256
+let g:solarized_termtrans = 1
 colorscheme solarized
 au BufNewFile,BufRead *.inc set filetype=php
 au BufNewFile,BufRead *.phtml set filetype=php
@@ -101,14 +108,15 @@ function Tabbing(type)
   let type=a:type
   if type == "acer"
     set tabstop=4 softtabstop=4 shiftwidth=4 expandtab
-  elseif type == "habari"
-    set tabstop=4 softtabstop=4 shiftwidth=4 noexpandtab
+  elseif type == "go"
+    set tabstop=2 softtabstop=2 shiftwidth=2 noexpandtab
   elseif type == "mine"
     set tabstop=2 softtabstop=2 shiftwidth=2 expandtab
   endif
 endfunction
 
 map ,h :call Tabbing("habari")<CR>
+map ,g :call Tabbing("go")<CR>
 map ,a :call Tabbing("acer")<CR>
 map ,m :call Tabbing("mine")<CR>
 
