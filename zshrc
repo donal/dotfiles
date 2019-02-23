@@ -43,6 +43,8 @@ setopt AUTOCD
 setopt AUTOPUSHD
 export DIRSTACKSIZE=11 # stack size of eleven gives me a list with ten entries
 
+setopt PROMPT_SUBST
+
 # display non-zero exit codes from CLI processes
 # setopt printexitvalue
 
@@ -64,7 +66,7 @@ HISTFILE=~/.zsh_history
 WORDCHARS='*?_-.[]~\!#$%^(){}<>|`@#$%^*()+:?'
 
 ## set up my prompt
-export PS1="%{${fg[yellow]}%}[%n@%m] %{${fg[green]}%}%3~ %# %{${fg[default]}%}"
+# export PS1="%{${fg[yellow]}%}[%n@%m] %{${fg[green]}%}%3~ %# %{${fg[default]}%}"
 # export RPS1="%{${fg[yellow]}%}%T%{${fg[default]}%}"
 
 export EDITOR=vim
@@ -79,7 +81,7 @@ export LANG=en_GB.UTF-8
 # export PATH=$HOME/bin:/usr/local/python/frameworks/Python.framework/Versions/2.6/bin:/usr/local/bin:/usr/local/mysql/bin:/usr/local/apache2/bin:/usr/local/php5/bin:/usr/local/openssl/bin:/usr/local/macports/bin:/usr/local/freetds/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:$PATH
 # export PATH=$HOME/bin:$HOME/.rbenv/bin:/usr/local/bin:$PATH
 # export CLASSPATH=$CLASSPATH:/usr/local/rhino/js.jar
-export PATH=$HOME/bin:/usr/local/bin:$PATH
+export PATH=$HOME/bin:/usr/local/opt/python/libexec/bin:/usr/local/bin:/Users/donal/dev/go/bin:$PATH
 
 export DISPLAY=:0.0
 
@@ -135,6 +137,8 @@ source /Users/donal/.private_vars
 #   alias run='open -a'
 #fi
 
+echo -ne "\e]1;$PWD\a"
+
 #############
 # FUNCTIONS #
 #############
@@ -143,6 +147,12 @@ pc() { awk "{print \$$1}" }
 mdc() { mkdir -p "$1" && cd "$1" }
 calc() { echo "$@" | bc -l -q -i }
 dont() { echo "OK, I won't!" }
+title() { echo -ne "\e]1;$PWD\a" }
+
+chpwd() {
+  title
+}
+
 #'"
 
 ###########
@@ -174,11 +184,13 @@ alias cdo='cd ~/dev/odnd'
 alias cdr='cd ~/dev/rails'
 alias cdpy='cd ~/dev/python'
 alias cdp='cd ~/dev/perl'
+alias cddp='cd ~/dev/projects'
 alias cdru='cd ~/dev/ruby'
 alias cdc='cd ~/dev/rails/cantoflash'
 alias cds='cd ~/src'
 alias cdd='cd ~/dev'
 alias cdgr='cd ~/dev/graphics'
+alias cdkk='cd ~/dev/rails/kriskringle'
 alias cdg='cd ~/github'
 alias cdgo='cd ~/dev/go'
 alias cdge='cd ~/github/enterprise2'
@@ -195,7 +207,8 @@ alias vm='ssh root@192.168.97.128'
 # alias vm='ssh root@192.168.97.129'
 alias vmu='ssh root@192.168.97.130'
 # alias cent='ssh root@10.0.1.23'
-alias syd='ssh ubuntu@54.66.224.218'
+# alias syd='ssh ubuntu@54.66.224.218'
+alias syd='ssh admin@52.62.44.59 -i ~/.aws/DonalKeyPair.pem'
 alias perx='ssh ubuntu@web1.getperx.com'
 alias jive='ssh ubuntu@web1.jiveitup.com'
 alias dev='ssh ubuntu@dev.getperx.com'
@@ -303,7 +316,8 @@ alias dxi='docker image ls'
 # TODO
 # source /usr/local/bin/aws_zsh_completer.sh
 
-source $HOME/src/zsh-git-prompt/zshrc.sh
+# source $HOME/src/zsh-git-prompt/zshrc.sh
+source /Users/donal/src/zsh-git-prompt/zshrc.sh
 
 PROMPT='%{${fg[yellow]}%}[%n@%m] %{${fg[green]}%}%4~%{${fg[default]}%}$(git_super_status) %# '
 
@@ -311,6 +325,6 @@ PROMPT='%{${fg[yellow]}%}[%n@%m] %{${fg[green]}%}%4~%{${fg[default]}%}$(git_supe
 # powerline-daemon -q
 # source /Users/donal/dev/src/powerline/powerline/bindings/zsh/powerline.zsh
 
-eval "$(rbenv init -)"
-eval "$(nodenv init -)"
-. "/Users/donal/.acme.sh/acme.sh.env"
+# eval "$(rbenv init -)"
+# eval "$(nodenv init -)"
+# . "/Users/donal/.acme.sh/acme.sh.env"
