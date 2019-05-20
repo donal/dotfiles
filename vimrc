@@ -23,6 +23,8 @@ set tabstop=2 softtabstop=2 shiftwidth=2 expandtab
 "set tabstop=4 shiftwidth=4
 
 autocmd FileType go setlocal tabstop=2 softtabstop=2 shiftwidth=2 noexpandtab
+autocmd FileType cpp setlocal tabstop=2 softtabstop=2 shiftwidth=2 noexpandtab
+
 
 "set autoindent
 "set smartindent
@@ -31,6 +33,7 @@ set list listchars=trail:_,tab:>.
 "set nolist
 
 autocmd FileType go setlocal nolist
+autocmd FileType cpp setlocal nolist
 
 " this is for spelling:
 autocmd BufNewFile,BufRead *.txt,*.md,README set spell spelllang=en_gb
