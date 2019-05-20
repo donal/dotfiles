@@ -259,6 +259,8 @@ alias flushdns='lookupd -flushcache'
 alias bc='bc -l'
 alias o.='open .'
 
+alias bfg='java -jar /Users/donal/src/bfg-1.13.0.jar'
+
 ## shortcuts to other machines
 alias tgo='ssh e46762@goanna.cs.rmit.edu.au'
 alias ty='ssh e46762@yallara.cs.rmit.edu.au'
@@ -304,6 +306,8 @@ alias dxc='docker container ls'
 alias dxcla='docker container ls -a'
 alias dxi='docker image ls'
 
+alias inflate='ruby -r zlib -e "STDOUT.write Zlib::Inflate.inflate(STDIN.read)"'
+
 # if [ `ifconfig | grep 10.10.0.22 | wc -l` = 1 ]; then
 #     proxy
 # fi
@@ -326,5 +330,5 @@ PROMPT='%{${fg[yellow]}%}[%n@%m] %{${fg[green]}%}%4~%{${fg[default]}%}$(git_supe
 # source /Users/donal/dev/src/powerline/powerline/bindings/zsh/powerline.zsh
 
 # eval "$(rbenv init -)"
-# eval "$(nodenv init -)"
+eval "$(nodenv init -)"
 # . "/Users/donal/.acme.sh/acme.sh.env"
