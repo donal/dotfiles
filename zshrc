@@ -81,7 +81,7 @@ export LANG=en_GB.UTF-8
 # export PATH=$HOME/bin:/usr/local/python/frameworks/Python.framework/Versions/2.6/bin:/usr/local/bin:/usr/local/mysql/bin:/usr/local/apache2/bin:/usr/local/php5/bin:/usr/local/openssl/bin:/usr/local/macports/bin:/usr/local/freetds/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:$PATH
 # export PATH=$HOME/bin:$HOME/.rbenv/bin:/usr/local/bin:$PATH
 # export CLASSPATH=$CLASSPATH:/usr/local/rhino/js.jar
-export PATH=$HOME/bin:/usr/local/opt/python/libexec/bin:/usr/local/bin:/Users/donal/dev/go/bin:$PATH
+export PATH=$HOME/bin:/usr/local/opt/python/libexec/bin:/usr/local/bin:/Users/donal/dev/go/bin:/Users/donal/github/awssume/bin:$PATH
 
 export DISPLAY=:0.0
 
@@ -188,6 +188,7 @@ alias cddp='cd ~/dev/projects'
 alias cdru='cd ~/dev/ruby'
 alias cdc='cd ~/dev/rails/cantoflash'
 alias cds='cd ~/src'
+alias cddn='cd ~/dev/dev-notes/dev-work'
 alias cdd='cd ~/dev'
 alias cdgr='cd ~/dev/graphics'
 alias cdkk='cd ~/dev/rails/kriskringle'
@@ -329,6 +330,6 @@ PROMPT='%{${fg[yellow]}%}[%n@%m] %{${fg[green]}%}%4~%{${fg[default]}%}$(git_supe
 # powerline-daemon -q
 # source /Users/donal/dev/src/powerline/powerline/bindings/zsh/powerline.zsh
 
-# eval "$(rbenv init -)"
+eval "$(rbenv init -)"
 eval "$(nodenv init -)"
 # . "/Users/donal/.acme.sh/acme.sh.env"
