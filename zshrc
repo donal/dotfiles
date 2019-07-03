@@ -45,6 +45,9 @@ export DIRSTACKSIZE=11 # stack size of eleven gives me a list with ten entries
 
 setopt PROMPT_SUBST
 
+setopt +o nomatch
+# unsetopt nomatch
+
 # display non-zero exit codes from CLI processes
 # setopt printexitvalue
 
