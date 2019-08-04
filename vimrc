@@ -8,7 +8,7 @@ Bundle 'gmarik/vundle'
 Bundle 'scrooloose/nerdtree'
 Bundle 'altercation/vim-colors-solarized'
 Bundle 'tpope/vim-rails'
-
+Bundle 'vim-syntastic/syntastic'
 
 " these do indenting
 " for Go:
@@ -244,6 +244,16 @@ filetype plugin on
 if has("autocmd")
   filetype plugin indent on
 endif
+
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
+let g:syntastic_ruby_checkers = ["syntastic-ruby-mri"]
 
 "Gist:
 "set g:github_user=donal
