@@ -9,6 +9,7 @@ Bundle 'scrooloose/nerdtree'
 Bundle 'altercation/vim-colors-solarized'
 Bundle 'tpope/vim-rails'
 Bundle 'vim-syntastic/syntastic'
+Plugin 'rust-lang/rust.vim'
 
 " these do indenting
 " for Go:
@@ -25,6 +26,8 @@ set tabstop=2 softtabstop=2 shiftwidth=2 expandtab
 autocmd FileType go setlocal tabstop=2 softtabstop=2 shiftwidth=2 noexpandtab
 autocmd FileType cpp setlocal tabstop=2 softtabstop=2 shiftwidth=2 noexpandtab
 autocmd FileType js setlocal tabstop=2 softtabstop=2 shiftwidth=2 noexpandtab
+autocmd FileType c setlocal tabstop=8 softtabstop=8 shiftwidth=8 noexpandtab
+" autocmd FileType rust setlocal tabstop=4 softtabstop=4 shiftwidth=4 noexpandtab
 
 
 "set autoindent
@@ -36,6 +39,8 @@ set list listchars=trail:_,tab:>.
 autocmd FileType go setlocal nolist
 autocmd FileType cpp setlocal nolist
 autocmd FileType js setlocal nolist
+autocmd FileType c setlocal nolist
+" FileType rust setlocal nolist
 
 " this is for spelling:
 autocmd BufNewFile,BufRead *.txt,*.md,README set spell spelllang=en_gb
@@ -96,11 +101,18 @@ au FileType php set omnifunc=phpcomplete#CompletePHP
 "colorscheme peachpuff
 "colorscheme ir_black
 syntax on
+" set background=dark
+" let g:solarized_termcolors=256
+" set t_Co=256
+" let g:solarized_termtrans = 1
+" colorscheme solarized
+
 set background=dark
-let g:solarized_termcolors=256
 set t_Co=256
-let g:solarized_termtrans = 1
-colorscheme solarized
+let g:gruvbox_contrast_dark = 'hard'
+let g:gruvbox_contrast_light = 'hard'
+colorscheme gruvbox
+
 au BufNewFile,BufRead *.inc set filetype=php
 au BufNewFile,BufRead *.phtml set filetype=php
 
@@ -251,9 +263,11 @@ set statusline+=%*
 
 let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 1
+" let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
 let g:syntastic_ruby_checkers = ["syntastic-ruby-mri"]
+" let g:rustfmt_autosave = 1
+let g:rust_recommended_style = 1
 
 "Gist:
 "set g:github_user=donal
