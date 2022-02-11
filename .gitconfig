@@ -1,0 +1,40 @@
+[user]
+	name = donal
+	email = donal@github.com
+[color]
+	branch = auto
+	diff = auto
+	interactive = auto
+	status = auto
+	ui = true
+[core]
+	editor = vim
+[github]
+	user = donal
+[alias]
+	rv = remote -v
+	lg = log --graph --pretty=oneline --abbrev-commit --decorate
+	lgg = log --decorate --graph --oneline --all
+  # shows the graphical log for the current branch only
+	lgb = log --decorate --graph --oneline master..
+	ss = status
+	s = status -s
+	co = checkout
+	dno = diff --name-only
+	dt = describe --tags
+	br = branch
+[filter "media"]
+	clean = git media clean %f
+	smudge = git media smudge %f
+	required = true
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
+[archive]
+	restrictRemote = false
+[push]
+	default = simple
+[color "diff"]
+	whitespace = red reverse
