@@ -10,9 +10,15 @@ git clone https://github.com/morhetz/gruvbox.git ~/.vim/bundle/gruvbox
 git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 vim +PluginInstall +qall
 
-if [ "$SHELL" != "/usr/bin/zsh" ]; then
-  sudo apt install -y zsh
-  sudo chsh -s /usr/bin/zsh
-fi
+sudo apt install -y zsh
 
+set_zsh() {
+  USER=$1
+  if grep -q "$USER" /etc/passwd && ! grep -q "$USER.*zsh" /etc/passwd; then
+    echo "set shell to zsh for $USER"
+    sudo usermod --shell /usr/bin/zsh "$USER"
+  fi
+}
 
+set_zsh "root"
+set_zsh "build"
