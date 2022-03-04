@@ -8,24 +8,10 @@ Bundle 'gmarik/vundle'
 Bundle 'scrooloose/nerdtree'
 Bundle 'altercation/vim-colors-solarized'
 Bundle 'tpope/vim-rails'
-" Bundle 'vim-syntastic/syntastic'
-" Plugin 'dense-analysis/ale'
-Plugin 'rust-lang/rust.vim'
-Plugin 'elixir-editors/vim-elixir'
-Plugin 'neovimhaskell/haskell-vim'
-Plugin 'fatih/vim-go'
 
 " these do indenting
-" for Go:
-" set tabstop=2 softtabstop=2 shiftwidth=2 noexpandtab
-" for acer:
-" set softtabstop=4 shiftwidth=4 expandtab
-" for me/rails:
+" for rails:
 set tabstop=2 softtabstop=2 shiftwidth=2 expandtab
-" for python:
-" set tabstop=4 softtabstop=4 shiftwidth=4 expandtab
-" for li3:
-"set tabstop=4 shiftwidth=4
 
 autocmd FileType go setlocal tabstop=2 softtabstop=2 shiftwidth=2 noexpandtab
 autocmd FileType cpp setlocal tabstop=2 softtabstop=2 shiftwidth=2 noexpandtab
@@ -34,8 +20,6 @@ autocmd FileType c setlocal tabstop=8 softtabstop=8 shiftwidth=8 noexpandtab
 autocmd FileType rust setlocal tabstop=4 softtabstop=4 shiftwidth=4 noexpandtab
 
 
-"set autoindent
-"set smartindent
 "TODO make this toggle-able:
 " set list listchars=trail:_,tab:>.,eol:¬
 set list listchars=trail:_,tab:>-
@@ -50,10 +34,8 @@ autocmd FileType c setlocal list listchars=trail:_,tab:>.
 autocmd FileType rust setlocal nolist
 
 " this is for spelling:
-autocmd BufNewFile,BufRead *.txt,*.md,README set spell spelllang=en_gb
-
 "set spell spelllang=en_gb
-"autocmd BufNewFile,BufRead *.txt,README set spell spelllang=en_gb
+autocmd BufNewFile,BufRead *.txt,*.md,README set spell spelllang=en_gb
 
 set ignorecase
 set smartcase
@@ -75,7 +57,7 @@ set number
 "set ai
 "set background=dark
 
-"nopaste by default which means 
+"nopaste by default
 set nopaste
 
 set tags=tags;/
@@ -90,40 +72,13 @@ let Tlist_WinWidth=60
 
 "source ~/.vim/scripts/autotag.vim
 
-" am i even using this? ->
-"source ~/.vim/scripts/php-doc.vim
-"for php-doc plugin
-inoremap <C-D> <ESC>:call PhpDocSingle()<CR>i
-nnoremap <C-D> :call PhpDocSingle()<CR>
-vnoremap <C-D> :call PhpDocRange()<CR>
-vnoremap <buffer> <C-D> :call PhpDocRange()<CR> 
-let g:pdv_cfg_Uses = 1
-
-map <C-T>z :set tags=tags;/,~/.vim/tags/zf<CR>
-map <C-T>h :set tags=tags;/,~/.vim/tags/habari<CR>
-
-nmap P <Plug>ManPageView
-
-"set ofu=syntaxcomplete#Complete
-au FileType php set omnifunc=phpcomplete#CompletePHP
-
-"colorscheme peachpuff
-"colorscheme ir_black
 syntax on
-" set background=dark
-" let g:solarized_termcolors=256
-" set t_Co=256
-" let g:solarized_termtrans = 1
-" colorscheme solarized
 
 set background=dark
 set t_Co=256
 let g:gruvbox_contrast_dark = 'hard'
 let g:gruvbox_contrast_light = 'hard'
 colorscheme gruvbox
-
-au BufNewFile,BufRead *.inc set filetype=php
-au BufNewFile,BufRead *.phtml set filetype=php
 
 map ,d :NERDTreeToggle . <CR> " that's d for directory, not d for nerD
 let Tlist_GainFocus_On_ToggleOpen = 1
@@ -132,19 +87,15 @@ let g:NERDTreeQuitOnOpen = 1
 
 function Tabbing(type)
   let type=a:type
-  if type == "acer"
-    set tabstop=4 softtabstop=4 shiftwidth=4 expandtab
-  elseif type == "go"
+  if type == "go"
     set tabstop=2 softtabstop=2 shiftwidth=2 noexpandtab
-  elseif type == "mine"
+  elseif type == "rails"
     set tabstop=2 softtabstop=2 shiftwidth=2 expandtab
   endif
 endfunction
 
-map ,h :call Tabbing("habari")<CR>
 map ,g :call Tabbing("go")<CR>
-map ,a :call Tabbing("acer")<CR>
-map ,m :call Tabbing("mine")<CR>
+map ,m :call Tabbing("rails")<CR>
 
 function ToggleLineNumbering()
   if &number
@@ -191,22 +142,6 @@ map <silent> ,w :call ToggleTextWidth()<CR>
 map <silent> ,s :call ToggleSpellChecking()<CR>
 vnoremap <Leader>c :s!^!// !<cr>gv:s!^// // !!<cr>
 
-"function OpenPHPManual(keyword)
-"  let web = 'lynx -accept_all_cookies --cookie_file=/home/jon/.lynx_cookies --cookie_save_file=/home/jon/.lynx_cookies --cookies'
-"  let url = 'http://jp2.php.net/' . a:keyword
-"  exec '!' . web . ' "' . url . '"'
-"endfunction
-
-"function OpenPHPManualLocal(keyword)
-"  let web = 'links'
-"  let url = 'http://localhost/dev/php/doc/function.' . a:keyword . '.html'
-"  exec '!' . web . ' "' . url . '"'
-"endfunction
-
-"noremap ,p :call OpenPHPManualLocal(expand('<cword>'))<CR>
-"noremap fj :call OpenPHPManual(expand('<cword>'))<CR>
-
-
 " preview window... to get it to open vert right, or horiz as desired
 function PreviewTag(top)
   "by MW
@@ -247,47 +182,14 @@ nnoremap <C-]> :call PreviewTag(0)<CR>
 " close preview
 "noremap <C-]>[ <Esc>:pc<CR>
 
-nmap <C-V>u :VCSUpdate<CR>
-nmap <C-V>s :VCSStatus<CR>
-nmap <C-V>c :VCSCommit<CR>
-nmap <C-V>d :VCSDiff<CR>
-nmap <C-V>v :VCSVimDiff<CR>
-
 map <C-S-p> :set paste!<Bar>set paste?<CR>
 
-" what does this do??"
-"filetype plugin indent on
 filetype on
 filetype plugin on
-"augroup myfiletypes
-"  autocmd!
-"  autocmd FileType ruby,eruby,yaml set ai sw=2 sts=2 et
-"augroup END
 if has("autocmd")
   filetype plugin indent on
 endif
 
 set statusline+=%#warningmsg#
-" set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
-
-" let g:syntastic_always_populate_loc_list = 1
-" let g:syntastic_auto_loc_list = 1
-" " let g:syntastic_check_on_open = 1
-" let g:syntastic_check_on_wq = 0
-" let g:syntastic_ruby_checkers = ["syntastic-ruby-mri"]
-" " let g:rustfmt_autosave = 1
-" let g:rust_recommended_style = 1
-
-"Gist:
-"set g:github_user=donal
-"set g:github_token=4022cfd6358378aa51f3d953af94cad6
-
-" set path+=/Users/donal/dev/rails/depot/**
-" set path+=/Users/donal/dev/rails/depot/lib/**
-" set suffixesadd=.rb
-" set includeexpr+=substitute(v:fname,'s$','','g')
-" or you can add substitution pattern s/ies$/y/g, s/ves$/f/g likethis:
-" setincludeexpr+=substitute(substitute(substitute(v:fname,'s$','','g'),'ie$','y','g'),'ve$','f','g')
-
 
