@@ -1,9 +1,10 @@
 #!/bin/bash
 
-ln -s ~/.dotfiles/.gitconfig ~/
-ln -s ~/.dotfiles/.zshrc ~/
-ln -s ~/.dotfiles/.vimrc ~/
-ln -s ~/.dotfiles/.tmux.conf ~/
+mv ~/.gitconfig ~/.gitconfig.orig
+ln -s ~/.dotfiles/gitconfig ~/.gitconfig
+ln -s ~/.dotfiles/zshrc ~/.zshrc
+ln -s ~/.dotfiles/vimrc ~/.vimrc
+ln -s ~/.dotfiles/tmux.conf ~/.tmux.conf
 
 if [ "$SHELL" != "/usr/bin/zsh" ]; then
   sudo apt install -y zsh
