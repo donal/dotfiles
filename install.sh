@@ -12,7 +12,7 @@ vim +PluginInstall +qall
 
 if [ "$SHELL" != "/usr/bin/zsh" ]; then
   sudo apt install -y zsh
-  zsh
+  sudo chsh -s /usr/bin/zsh
 fi
 
 
