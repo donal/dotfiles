@@ -8,6 +8,7 @@ Bundle 'gmarik/vundle'
 Bundle 'scrooloose/nerdtree'
 Bundle 'altercation/vim-colors-solarized'
 Bundle 'tpope/vim-rails'
+Plugin 'morhetz/gruvbox'
 
 " these do indenting
 " for rails:
