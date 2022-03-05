@@ -88,9 +88,9 @@ alias h='history'
 
 ## shortcuts
 alias x='exit'
-alias l='ls -Glh'
+alias l='ls -lh --color=auto'
 alias ls='ls -F'
-alias ll='ls -alGh'
+alias ll='ls -alh --color=auto'
 alias la='ls -A'
 alias lla="ls -Ahl"
 alias l.='ls -d .[^.]*'
