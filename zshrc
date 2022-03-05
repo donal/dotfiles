@@ -101,7 +101,7 @@ alias cd..='cd ..';
 alias ..='cd ..'
 alias df='df -h'
 
-source ~/.dotfiles/zsh-git-prompt/zshrc.sh
+source ~/.src/zsh-git-prompt/zshrc.sh
 PROMPT='%{${fg[yellow]}%}[%n@%m] %{${fg[green]}%}%4~%{${fg[default]}%}$(git_super_status) %# '
 
 autoload -U +X bashcompinit && bashcompinit
