@@ -75,6 +75,11 @@ export LANG=en_GB.UTF-8
 
 export DISPLAY=:0.0
 
+# some colours
+LS_COLORS='no=00;90:fi=00:di=00;94:ln=04;36:pi=40;33:so=01;35:bd=40;33;01:ow=00;92:ex=00;91:'
+export LS_COLORS
+zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
+
 #############
 # FUNCTIONS #
 #############
@@ -89,7 +94,7 @@ alias h='history'
 ## shortcuts
 alias x='exit'
 alias l='ls -lh --color=auto'
-alias ls='ls -F'
+alias ls='ls -F --color=auto'
 alias ll='ls -alh --color=auto'
 alias la='ls -A'
 alias lla="ls -Ahl"
