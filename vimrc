@@ -8,8 +8,12 @@ Bundle 'gmarik/vundle'
 Bundle 'scrooloose/nerdtree'
 Bundle 'altercation/vim-colors-solarized'
 Bundle 'tpope/vim-rails'
-Bundle 'vim-syntastic/syntastic'
+" Bundle 'vim-syntastic/syntastic'
+" Plugin 'dense-analysis/ale'
 Plugin 'rust-lang/rust.vim'
+Plugin 'elixir-editors/vim-elixir'
+Plugin 'neovimhaskell/haskell-vim'
+Plugin 'fatih/vim-go'
 
 " these do indenting
 " for Go:
@@ -27,20 +31,23 @@ autocmd FileType go setlocal tabstop=2 softtabstop=2 shiftwidth=2 noexpandtab
 autocmd FileType cpp setlocal tabstop=2 softtabstop=2 shiftwidth=2 noexpandtab
 autocmd FileType js setlocal tabstop=2 softtabstop=2 shiftwidth=2 noexpandtab
 autocmd FileType c setlocal tabstop=8 softtabstop=8 shiftwidth=8 noexpandtab
-" autocmd FileType rust setlocal tabstop=4 softtabstop=4 shiftwidth=4 noexpandtab
+autocmd FileType rust setlocal tabstop=4 softtabstop=4 shiftwidth=4 noexpandtab
 
 
 "set autoindent
 "set smartindent
-set list listchars=trail:_,tab:>.
-"set list listchars=trail:_,tab:>-
+"TODO make this toggle-able:
+" set list listchars=trail:_,tab:>.,eol:¬
+set list listchars=trail:_,tab:>-
 "set nolist
 
 autocmd FileType go setlocal nolist
 autocmd FileType cpp setlocal nolist
 autocmd FileType js setlocal nolist
-autocmd FileType c setlocal nolist
-" FileType rust setlocal nolist
+" autocmd FileType c setlocal nolist
+" autocmd FileType c setlocal list listchars=trail:_,tab:>.,eol:¬
+autocmd FileType c setlocal list listchars=trail:_,tab:>.
+autocmd FileType rust setlocal nolist
 
 " this is for spelling:
 autocmd BufNewFile,BufRead *.txt,*.md,README set spell spelllang=en_gb
@@ -56,7 +63,9 @@ set noerrorbells
 set showmode
 set showmatch
 "**unset
-set textwidth=79
+" set textwidth=79
+" off by default:
+set textwidth=0
 set number
 "set notextauto
 "set notextmode
@@ -149,6 +158,7 @@ function ToggleTrail()
   if &list
     set nolist
   else
+    " set list listchars=trail:_,tab:>.,eol:¬
     set list listchars=trail:_,tab:>.
   endif
 endfunction
@@ -258,16 +268,16 @@ if has("autocmd")
 endif
 
 set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
+" set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
 
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
-" let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 0
-let g:syntastic_ruby_checkers = ["syntastic-ruby-mri"]
-" let g:rustfmt_autosave = 1
-let g:rust_recommended_style = 1
+" let g:syntastic_always_populate_loc_list = 1
+" let g:syntastic_auto_loc_list = 1
+" " let g:syntastic_check_on_open = 1
+" let g:syntastic_check_on_wq = 0
+" let g:syntastic_ruby_checkers = ["syntastic-ruby-mri"]
+" " let g:rustfmt_autosave = 1
+" let g:rust_recommended_style = 1
 
 "Gist:
 "set g:github_user=donal

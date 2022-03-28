@@ -84,7 +84,9 @@ export LANG=en_GB.UTF-8
 # export PATH=$HOME/bin:/usr/local/python/frameworks/Python.framework/Versions/2.6/bin:/usr/local/bin:/usr/local/mysql/bin:/usr/local/apache2/bin:/usr/local/php5/bin:/usr/local/openssl/bin:/usr/local/macports/bin:/usr/local/freetds/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:$PATH
 # export PATH=$HOME/bin:$HOME/.rbenv/bin:/usr/local/bin:$PATH
 # export CLASSPATH=$CLASSPATH:/usr/local/rhino/js.jar
-export PATH=$HOME/bin:/usr/local/opt/python/libexec/bin:/usr/local/bin:/Users/donal/dev/go/bin:/Users/donal/github/awssume/bin:$PATH
+export GOPATH=$HOME/go
+
+export PATH=$HOME/bin:/usr/local/opt/python/libexec/bin:/usr/local/bin:/Users/donal/dev/go/bin:/Users/donal/github/awssume/bin:/Users/donal/bin/hashicorp:$PATH:$GOPATH/bin
 
 export DISPLAY=:0.0
 
@@ -126,7 +128,7 @@ export AWS_CONFIG_FILE=/Users/donal/.aws/config
 
 export VAGRANT_DEFAULT_PROVIDER=virtualbox
 
-export GOPATH=$HOME/dev/go
+# export GOPATH=$HOME/dev/go
 
 # private vars
 source /Users/donal/.private_vars
@@ -177,14 +179,18 @@ alias lla="ls -Ahl"
 alias l.='ls -d .[^.]*'
 alias lsd='ls -ld *(-/DN)'
 alias lg='ls -l | grep -i'
+alias lr='ls -lrt'
 alias cd..='cd ..';
 alias ..='cd ..'
 alias df='df -h'
 alias cdw='cd ~/dev/writing'
 alias cdwr='cd ~/dev/writing/rpg'
 alias cddr='cd ~/dev/rpg'
+alias cdde='cd ~/dev/elixir'
 alias cdo='cd ~/dev/odnd'
 alias cdr='cd ~/dev/rails'
+alias cdr27='cd ~/dev/ruby/2.7'
+alias cdr3='cd ~/dev/ruby/3.0'
 alias cdrust='cd /Users/donal/dev/rust'
 alias cdpy='cd ~/dev/python'
 alias cdp='cd ~/dev/perl'
@@ -192,20 +198,27 @@ alias cddp='cd ~/dev/projects'
 alias cdru='cd ~/dev/ruby'
 alias cdc='cd ~/dev/rails/cantoflash'
 alias cds='cd ~/src'
-alias cddn='cd ~/dev/dev-notes/dev-work'
+alias cddw='cd ~/dev/dev-work'
 alias cdd='cd ~/dev'
+alias cdh='cd ~/dev/haskell'
 alias cdgr='cd ~/dev/graphics'
 alias cdkk='cd ~/dev/rails/kriskringle'
 alias cdg='cd ~/github'
-alias cdgo='cd ~/dev/go'
+# alias cdgo='cd ~/dev/go'
+alias cdgo='cd ~/go'
 alias cdge='cd ~/github/enterprise2'
 alias cdgg='cd ~/github/github'
 alias cddg='cd ~/dev/github'
 alias cdgk='cd ~/github/knowledge-base'
-alias cdgw='cd ~/dev/github/github-work'
+alias cdgw='cd ~/dev/github/github-work/github-work'
+alias cdgw20='cd ~/dev/github/github-work/github-work-2020'
+alias cdgwt='cd ~/dev/github/github-work/github-work/tickets'
+alias cdgw21='cd ~/dev/github/github-work/github-work-fy21'
+alias cdgw1='cd ~/dev/github/github-work/github-work-fy21'
 alias cddc='cd ~/dev/github/github-dotcom-work'
 alias cdgl='cd ~/dev/github/local'
 alias cdes='cd ~/Downloads/github'
+alias dk='docker'
 alias mystart='sudo /usr/local/mysql/bin/mysqld_safe &'
 alias mystop='sudo /usr/local/mysql/bin/mysqladmin -u root -p shutdown'
 alias vm='ssh root@192.168.97.128'
@@ -243,6 +256,9 @@ alias pairing2='ssh -p 122 -i ~/.aws/DonalKeyPair.pem admin@54.179.136.193'
 # replica 54.169.221.189
 alias gheio='ssh -p122 -A -i ~/.ssh/id_rsa admin@ghe.io'
 
+alias sshb='ssh admin@13.214.166.217'
+alias ssh31='ssh -p122 -i ~/.aws/DonalKeyPair.pem admin@31x.ghe-aws.com'
+
 # alias my='/usr/local/mysql/bin/mysql -u root -p'
 alias my='/usr/local/opt/mysql/bin/mysql -u root'
 
@@ -264,7 +280,7 @@ alias flushdns='lookupd -flushcache'
 alias bc='bc -l'
 alias o.='open .'
 
-alias bfg='java -jar /Users/donal/src/bfg-1.13.0.jar'
+alias bfg='java -jar /Users/donal/src/bfg-1.14.0.jar'
 
 ## shortcuts to other machines
 alias tgo='ssh e46762@goanna.cs.rmit.edu.au'
@@ -313,6 +329,14 @@ alias dxi='docker image ls'
 
 alias inflate='ruby -r zlib -e "STDOUT.write Zlib::Inflate.inflate(STDIN.read)"'
 
+alias align='align.sh'
+
+alias fixmysql='brew link mysql@5.7 --force'
+
+alias iex='rlwrap -a foo iex'
+
+alias epoch='date -j -f %s'
+
 # if [ `ifconfig | grep 10.10.0.22 | wc -l` = 1 ]; then
 #     proxy
 # fi
@@ -337,3 +361,6 @@ PROMPT='%{${fg[yellow]}%}[%n@%m] %{${fg[green]}%}%4~%{${fg[default]}%}$(git_supe
 eval "$(rbenv init -)"
 eval "$(nodenv init -)"
 # . "/Users/donal/.acme.sh/acme.sh.env"
+
+autoload -U +X bashcompinit && bashcompinit
+complete -o nospace -C /Users/donal/bin/hashicorp/vault vault
