@@ -70,8 +70,8 @@ WORDCHARS='*?_-.[]~\!#$%^(){}<>|`@#$%^*()+:?'
 export EDITOR=vim
 bindkey -v
 
-export LC_ALL=en_GB.UTF-8
-export LANG=en_GB.UTF-8
+# export LC_ALL=en_GB.UTF-8
+# export LANG=en_GB.UTF-8
 
 export DISPLAY=:0.0
 
