@@ -1,39 +1,50 @@
 #!/bin/bash
 
-if [ -f ~/.gitconfig ] && [ ! -f ~/.gitconfig.orig ]; then
-  mv ~/.gitconfig ~/.gitconfig.orig
+if [ -f "${HOME}"/.gitconfig ] && [ ! -f "${HOME}"/.gitconfig.orig ]; then
+  mv "${HOME}"/.gitconfig "${HOME}"/.gitconfig.orig
 fi
 
-if [ -f ~/.zshrc ] && [ ! -f ~/.zshrc.orig ]; then
-  mv ~/.zshrc ~/.zshrc.orig
+if [ -f "${HOME}"/.zshrc ] && [ ! -f "${HOME}"/.zshrc.orig ]; then
+  mv "${HOME}"/.zshrc "${HOME}"/.zshrc.orig
 fi
 
 if [ "$CODESPACES" = true ]; then
-  ln -s /workspaces/.codespaces/.persistedshare/dotfiles/gitconfig ~/.gitconfig 2>/dev/null
-  ln -s /workspaces/.codespaces/.persistedshare/dotfiles/zshrc ~/.zshrc 2>/dev/null
-  ln -s /workspaces/.codespaces/.persistedshare/dotfiles/vimrc ~/.vimrc 2>/dev/null
-  ln -s /workspaces/.codespaces/.persistedshare/dotfiles/tmux.conf ~/.tmux.conf 2>/dev/null
+  ln -s /workspaces/.codespaces/.persistedshare/dotfiles/gitconfig "${HOME}"/.gitconfig 2>/dev/null
+  ln -s /workspaces/.codespaces/.persistedshare/dotfiles/zshrc "${HOME}"/.zshrc 2>/dev/null
+  ln -s /workspaces/.codespaces/.persistedshare/dotfiles/vimrc "${HOME}"/.vimrc 2>/dev/null
+  ln -s /workspaces/.codespaces/.persistedshare/dotfiles/tmux.conf "${HOME}"/.tmux.conf 2>/dev/null
 else
-  ln -s ~/.dotfiles/gitconfig ~/.gitconfig 2>/dev/null
-  ln -s ~/.dotfiles/zshrc ~/.zshrc 2>/dev/null
-  ln -s ~/.dotfiles/vimrc ~/.vimrc 2>/dev/null
-  ln -s ~/.dotfiles/tmux.conf ~/.tmux.conf 2>/dev/null
+  ln -s "${HOME}"/.dotfiles/gitconfig "${HOME}"/.gitconfig 2>/dev/null
+  ln -s "${HOME}"/.dotfiles/zshrc "${HOME}"/.zshrc 2>/dev/null
+  ln -s "${HOME}"/.dotfiles/vimrc "${HOME}"/.vimrc 2>/dev/null
+  ln -s "${HOME}"/.dotfiles/tmux.conf "${HOME}"/.tmux.conf 2>/dev/null
 fi
 
-if [ ! -d ~/.vim ]; then
-  mkdir -p ~/.vim
+if [ ! -d "${HOME}"/.vim ]; then
+  mkdir -p "${HOME}"/.vim
 fi
 
-git clone https://github.com/morhetz/gruvbox.git ~/.vim/bundle/gruvbox
-git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+BUNDLE_PATH="${HOME}/.vim/bundle"
+
+BUNDLE_NAME="gruvbox"
+BUNDLE_REPO="https://github.com/morhetz/gruvbox.git"
+if [ ! -d "$BUNDLE_PATH/$BUNDLE_NAME" ] || [ ! "$(ls -A $BUNDLE_PATH/$BUNDLE_NAME)" ]; then
+  git clone "$BUNDLE_REPO" "$BUNDLE_PATH/$BUNDLE_NAME"
+fi
+
+BUNDLE_NAME="Vundle.vim"
+BUNDLE_REPO="https://github.com/VundleVim/Vundle.vim.git"
+if [ ! -d "$BUNDLE_PATH/$BUNDLE_NAME" ] || [ ! "$(ls -A $BUNDLE_PATH/$BUNDLE_NAME)" ]; then
+  git clone "$BUNDLE_REPO" "$BUNDLE_PATH/$BUNDLE_NAME"
+fi
 vim -E -s +PlugInstall +qall
 
-if [ ! -d ~/.src/zsh-git-prompt ]; then
-  mkdir -p ~/.src/zsh-git-prompt
+if [ ! -d "${HOME}"/.src/zsh-git-prompt ]; then
+  mkdir -p "${HOME}"/.src/zsh-git-prompt
   if [ "$CODESPACES" = true ]; then
-    ln -s /workspaces/.codespaces/.persistedshare/dotfiles/zsh-git-prompt/zshrc.sh ~/.src/zsh-git-prompt/zshrc.sh
+    ln -s /workspaces/.codespaces/.persistedshare/dotfiles/zsh-git-prompt/zshrc.sh "${HOME}"/.src/zsh-git-prompt/zshrc.sh
   else
-    ln -s ~/.dotfiles/zsh-git-prompt/zshrc.sh ~/.src/zsh-git-prompt/zshrc.sh
+    ln -s "${HOME}"/.dotfiles/zsh-git-prompt/zshrc.sh "${HOME}"/.src/zsh-git-prompt/zshrc.sh
   fi
 fi
 
