@@ -43,11 +43,15 @@ set_zsh() {
   USER=$1
   if grep -q "$USER" /etc/passwd && ! grep -q "$USER.*zsh" /etc/passwd; then
     echo "set shell to zsh for $USER"
-    sudo chsh "$(USER)" --shell "/usr/bin/zsh"
+    sudo chsh "$USER" --shell "/usr/bin/zsh"
   fi
 }
 
 if [ "$CODESPACES" = true ]; then
+  # /etc/environment sets the SHELL var, which overrides it being set to the shell field of passwd
+  # so remove it
+  echo "removing SHELL assignment from /etc/environment"
+  sudo sed -i.orig '/^SHELL=/d' /etc/environment
   set_zsh "codespace"
 else
   set_zsh "build"
