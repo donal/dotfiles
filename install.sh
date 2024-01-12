@@ -43,12 +43,12 @@ set_zsh() {
   USER=$1
   if grep -q "$USER" /etc/passwd && ! grep -q "$USER.*zsh" /etc/passwd; then
     echo "set shell to zsh for $USER"
-    sudo usermod --shell /usr/bin/zsh "$USER"
+    sudo chsh "$(USER)" --shell "/usr/bin/zsh"
   fi
 }
 
 if [ "$CODESPACES" = true ]; then
-  set_zsh "root"
+  set_zsh "codespace"
 else
   set_zsh "build"
 fi
