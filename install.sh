@@ -9,15 +9,15 @@ if [ -f ~/.zshrc ] && [ ! -f ~/.zshrc.orig ]; then
 fi
 
 if [ "$CODESPACES" = true ]; then
-  ln -s /workspaces/.codespaces/.persistedshare/dotfiles/gitconfig ~/.gitconfig
-  ln -s /workspaces/.codespaces/.persistedshare/dotfiles/zshrc ~/.zshrc
-  ln -s /workspaces/.codespaces/.persistedshare/dotfiles/vimrc ~/.vimrc
-  ln -s /workspaces/.codespaces/.persistedshare/dotfiles/tmux.conf ~/.tmux.conf
+  ln -s /workspaces/.codespaces/.persistedshare/dotfiles/gitconfig ~/.gitconfig 2>/dev/null
+  ln -s /workspaces/.codespaces/.persistedshare/dotfiles/zshrc ~/.zshrc 2>/dev/null
+  ln -s /workspaces/.codespaces/.persistedshare/dotfiles/vimrc ~/.vimrc 2>/dev/null
+  ln -s /workspaces/.codespaces/.persistedshare/dotfiles/tmux.conf ~/.tmux.conf 2>/dev/null
 else
-  ln -s ~/.dotfiles/gitconfig ~/.gitconfig
-  ln -s ~/.dotfiles/zshrc ~/.zshrc
-  ln -s ~/.dotfiles/vimrc ~/.vimrc
-  ln -s ~/.dotfiles/tmux.conf ~/.tmux.conf
+  ln -s ~/.dotfiles/gitconfig ~/.gitconfig 2>/dev/null
+  ln -s ~/.dotfiles/zshrc ~/.zshrc 2>/dev/null
+  ln -s ~/.dotfiles/vimrc ~/.vimrc 2>/dev/null
+  ln -s ~/.dotfiles/tmux.conf ~/.tmux.conf 2>/dev/null
 fi
 
 if [ ! -d ~/.vim ]; then
@@ -26,7 +26,7 @@ fi
 
 git clone https://github.com/morhetz/gruvbox.git ~/.vim/bundle/gruvbox
 git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
-vim +PluginInstall +qall
+vim -E -s +PlugInstall +qall
 
 if [ ! -d ~/.src/zsh-git-prompt ]; then
   mkdir -p ~/.src/zsh-git-prompt
