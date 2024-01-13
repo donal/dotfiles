@@ -65,7 +65,12 @@ if [ "$CODESPACES" = true ]; then
   # /etc/environment sets the SHELL var, which overrides it being set to the shell field of passwd
   # so remove it
   echo "removing SHELL assignment from /etc/environment"
-  sudo sed -i.orig '/^SHELL=/d' /etc/environment
+  if [ -f /etc/environment.orig ]; then
+    sudo sed -i '/^SHELL=/d' /etc/environment
+  else
+    # only create the backup file once
+    sudo sed -i.orig '/^SHELL=/d' /etc/environment
+  fi
   set_zsh "codespace"
 else
   set_zsh "build"
