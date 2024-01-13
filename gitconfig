@@ -22,7 +22,7 @@
 	co = checkout
 	dno = diff --name-only
 	dt = describe --tags
-	br = branch
+	br = branch --sort=committerdate
 [filter "media"]
 	clean = git media clean %f
 	smudge = git media smudge %f
@@ -38,3 +38,5 @@
 	default = simple
 [color "diff"]
 	whitespace = red reverse
+[pager]
+	branch = false
