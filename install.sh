@@ -48,7 +48,10 @@ if [ ! -d "${HOME}"/.src/zsh-git-prompt ]; then
   fi
 fi
 
-sudo apt install -y zsh
+if [ ! "$CODESPACES" = true ]; then
+  # no need to install on codespaces
+  sudo apt install -y zsh
+fi
 
 set_zsh() {
   USER=$1
