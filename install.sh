@@ -48,9 +48,16 @@ if [ ! -d "${HOME}"/.src/zsh-git-prompt ]; then
   fi
 fi
 
+sudo apt-get update
+
 if [ ! "$CODESPACES" = true ]; then
   # no need to install on codespaces
   sudo apt install -y zsh
+fi
+
+if ! dpkg-query -W --showformat='${Status}\n' "$name" >/dev/null 2>&1; then
+  echo installing tmux
+  sudo apt-get --assume-yes install tmux
 fi
 
 set_zsh() {
