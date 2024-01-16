@@ -90,6 +90,7 @@ zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
 
 ## history
 alias h='history'
+alias fh='history -1000 | fzf'
 
 ## shortcuts
 alias x='exit'
@@ -110,3 +111,5 @@ source ~/.src/zsh-git-prompt/zshrc.sh
 PROMPT='%{${fg[yellow]}%}[%n@%m] %{${fg[green]}%}%4~%{${fg[default]}%}$(git_super_status) %# '
 
 autoload -U +X bashcompinit && bashcompinit
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh

@@ -13,11 +13,15 @@ if [ "$CODESPACES" = true ]; then
   ln -s /workspaces/.codespaces/.persistedshare/dotfiles/zshrc "${HOME}"/.zshrc 2>/dev/null
   ln -s /workspaces/.codespaces/.persistedshare/dotfiles/vimrc "${HOME}"/.vimrc 2>/dev/null
   ln -s /workspaces/.codespaces/.persistedshare/dotfiles/tmux.conf "${HOME}"/.tmux.conf 2>/dev/null
+  ln -s /workspaces/.codespaces/.persistedshare/dotfiles/fzf.bash "${HOME}"/.fzf.bash 2>/dev/null
+  ln -s /workspaces/.codespaces/.persistedshare/dotfiles/fzf.zsh "${HOME}"/.fzf.zsh 2>/dev/null
 else
   ln -s "${HOME}"/.dotfiles/gitconfig "${HOME}"/.gitconfig 2>/dev/null
   ln -s "${HOME}"/.dotfiles/zshrc "${HOME}"/.zshrc 2>/dev/null
   ln -s "${HOME}"/.dotfiles/vimrc "${HOME}"/.vimrc 2>/dev/null
   ln -s "${HOME}"/.dotfiles/tmux.conf "${HOME}"/.tmux.conf 2>/dev/null
+  ln -s "${HOME}"/.dotfiles/fzf.bash "${HOME}"/.fzf.bash 2>/dev/null
+  ln -s "${HOME}"/.dotfiles/fzf.zsh "${HOME}"/.fzf.zsh 2>/dev/null
 fi
 
 if [ ! -d "${HOME}"/.vim ]; then
