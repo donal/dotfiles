@@ -55,9 +55,16 @@ if [ ! "$CODESPACES" = true ]; then
   sudo apt install -y zsh
 fi
 
+name=tmux
 if ! dpkg-query -W --showformat='${Status}\n' "$name" >/dev/null 2>&1; then
-  echo installing tmux
-  sudo apt-get --assume-yes install tmux
+  echo "installing $name"
+  sudo apt-get --assume-yes install "$name"
+fi
+
+name=fzf
+if ! dpkg-query -W --showformat='${Status}\n' "$name" >/dev/null 2>&1; then
+  echo "installing $name"
+  sudo apt-get --assume-yes install "$name"
 fi
 
 set_zsh() {
