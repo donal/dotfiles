@@ -8,6 +8,10 @@ if [ -f "${HOME}"/.zshrc ] && [ ! -f "${HOME}"/.zshrc.orig ]; then
   mv "${HOME}"/.zshrc "${HOME}"/.zshrc.orig
 fi
 
+if [ -f /etc/locale.gen ] && [ ! -f /etc/locale.gen.orig ]; then
+  sudo cp /etc/locale.gen /etc/locale.gen.orig
+fi
+
 if [ "$CODESPACES" = true ]; then
   ln -s /workspaces/.codespaces/.persistedshare/dotfiles/gitconfig "${HOME}"/.gitconfig 2>/dev/null
   ln -s /workspaces/.codespaces/.persistedshare/dotfiles/zshrc "${HOME}"/.zshrc 2>/dev/null
@@ -15,6 +19,7 @@ if [ "$CODESPACES" = true ]; then
   ln -s /workspaces/.codespaces/.persistedshare/dotfiles/tmux.conf "${HOME}"/.tmux.conf 2>/dev/null
   ln -s /workspaces/.codespaces/.persistedshare/dotfiles/fzf.bash "${HOME}"/.fzf.bash 2>/dev/null
   ln -s /workspaces/.codespaces/.persistedshare/dotfiles/fzf.zsh "${HOME}"/.fzf.zsh 2>/dev/null
+  sudo cp /workspaces/.codespaces/.persistedshare/dotfiles/locale.gen /etc/locale.gen 2>/dev/null
 else
   ln -s "${HOME}"/.dotfiles/gitconfig "${HOME}"/.gitconfig 2>/dev/null
   ln -s "${HOME}"/.dotfiles/zshrc "${HOME}"/.zshrc 2>/dev/null
@@ -22,6 +27,7 @@ else
   ln -s "${HOME}"/.dotfiles/tmux.conf "${HOME}"/.tmux.conf 2>/dev/null
   ln -s "${HOME}"/.dotfiles/fzf.bash "${HOME}"/.fzf.bash 2>/dev/null
   ln -s "${HOME}"/.dotfiles/fzf.zsh "${HOME}"/.fzf.zsh 2>/dev/null
+  sudo cp "${HOME}"/.dotfiles/locale.gen /etc/locale.gen 2>/dev/null
 fi
 
 if [ ! -d "${HOME}"/.vim ]; then
@@ -100,9 +106,4 @@ else
   set_zsh "build"
 fi
 
-if [ -f /etc/locale.gen ] && [ ! -f /etc/locale.gen.orig ]; then
-  sudo cp /etc/locale.gen /etc/locale.gen.orig
-fi
-
-sudo cp "${HOME}"/.dotfiles/locale.gen /etc/locale.gen 2>/dev/null
 sudo locale-gen
