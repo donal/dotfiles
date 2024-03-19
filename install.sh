@@ -93,3 +93,11 @@ if [ "$CODESPACES" = true ]; then
 else
   set_zsh "build"
 fi
+
+if [ -f /etc/locale.gen ] && [ ! -f /etc/locale.gen.orig ]; then
+  sudo cp /etc/locale.gen /etc/locale.gen.orig
+fi
+
+sudo cp "${HOME}"/.dotfiles/locale.gen /etc/locale.gen 2>/dev/null
+sudo locale-gen
+
