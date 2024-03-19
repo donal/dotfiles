@@ -71,6 +71,12 @@ if ! dpkg-query -W --showformat='${Status}\n' "$name" >/dev/null 2>&1; then
   sudo apt-get --assume-yes install "$name"
 fi
 
+name=ripgrep
+if ! dpkg-query -W --showformat='${Status}\n' "$name" >/dev/null 2>&1; then
+  echo "installing $name"
+  sudo apt-get --assume-yes install "$name"
+fi
+
 set_zsh() {
   USER=$1
   if grep -q "$USER" /etc/passwd && ! grep -q "$USER.*zsh" /etc/passwd; then
@@ -100,4 +106,3 @@ fi
 
 sudo cp "${HOME}"/.dotfiles/locale.gen /etc/locale.gen 2>/dev/null
 sudo locale-gen
-
