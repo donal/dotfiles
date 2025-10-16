@@ -101,7 +101,8 @@ if [ "$CODESPACES" = true ]; then
     # only create the backup file once
     sudo sed -i.orig '/^SHELL=/d' /etc/environment
   fi
-  set_zsh "codespace"
+  # just set it to the user — this could be "vscode" on some codespaces (eg. ones owned by GitHub)
+  set_zsh "$USER"
 else
   set_zsh "build"
 fi
